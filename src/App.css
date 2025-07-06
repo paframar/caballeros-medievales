@@ -162,3 +162,45 @@ body {
   font-family: "UnifrakturCook", Georgia, serif;
   opacity: 0.85;
 }
+
+@media (max-width: 600px) {
+  .landing-placeholder {
+    min-width: 100vw;
+    width: 100vw;
+    height: 100vh;
+    padding: 0.5rem;
+  }
+  .landing-placeholder h1 {
+    font-size: 2rem;
+    margin-bottom: 1.2rem;
+  }
+  .cards-stack {
+    width: 95vw;
+    max-width: 98vw;
+    height: 140px;
+    margin-bottom: 1.2rem;
+  }
+  .card-animated,
+  .card-next {
+    width: 90vw;
+    max-width: 98vw;
+    height: 120px;
+    padding: 0.7rem;
+    font-size: 0.95rem;
+  }
+  .card-animated h2 {
+    font-size: 1.1rem;
+    margin-bottom: 0.4rem;
+  }
+  .card-animated p {
+    font-size: 0.95rem;
+  }
+  .coming-soon-text {
+    font-size: 1rem;
+    margin-top: 1rem;
+  }
+  .copyright-footer {
+    font-size: 0.85rem;
+    margin-top: 1.2rem;
+  }
+}
