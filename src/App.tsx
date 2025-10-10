@@ -106,7 +106,7 @@ function App() {
         ¡Sigue atento para el lanzamiento y sé de los primeros en jugar!
       </motion.p>
       <footer className="copyright-footer">
-        © {new Date().getFullYear()} www.caballerosmedievales.com
+        www.caballerosmedievales.com © {new Date().getFullYear()}
       </footer>
     </div>
   );
