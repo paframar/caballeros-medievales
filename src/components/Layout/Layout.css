@@ -1,0 +1,51 @@
+.layout {
+  min-height: 100vh;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  background: radial-gradient(
+      circle at 60% 40%,
+      #bfa76f99 0%,
+      #6e5c3e99 30%,
+      #2d2d2dcc 70%,
+      #181818ee 100%
+    ),
+    url("../../assets/background.png") center center / cover no-repeat;
+  background-blend-mode: multiply, normal;
+  background-color: #181818;
+  background-attachment: fixed;
+}
+
+.layout-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  min-height: calc(100vh - 4rem);
+}
+
+.layout-footer {
+  width: 100%;
+  text-align: center;
+  font-size: 1rem;
+  color: #bfa76f;
+  padding: 1.5rem 0;
+  letter-spacing: 1px;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.7);
+  font-family: "UnifrakturCook", Georgia, serif;
+  opacity: 0.85;
+  background: linear-gradient(to bottom, transparent, rgba(24, 24, 24, 0.5));
+}
+
+@media (max-width: 600px) {
+  .layout-content {
+    padding: 1rem;
+  }
+
+  .layout-footer {
+    font-size: 0.85rem;
+    padding: 1rem 0;
+  }
+}

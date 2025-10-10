@@ -1,0 +1,80 @@
+{
+  "nav": {
+    "startPlaying": "Comienza a jugar",
+    "rules": "Reglas",
+    "contact": "Contacto",
+    "about": "Quiénes somos"
+  },
+  "home": {
+    "title": "Caballeros Medievales"
+  },
+  "rules": {
+    "objective": "Ser el primero en conseguir 6 banderas.",
+    "setup": {
+      "description": [
+        "Mezcla todas las cartas.",
+        "Reparte 5 cartas a cada jugador.",
+        "En tu turno, solo puedes jugar una carta.",
+        "Al final de tu turno, roba una carta del mazo para volver a tener 5."
+      ]
+    },
+    "cards": {
+      "flag": {
+        "name": "Bandera",
+        "description": "Coloca una bandera delante de ti. Cada bandera cuenta como una victoria. Gana el primer jugador que consiga 6 banderas."
+      },
+      "knight": {
+        "name": "Caballero",
+        "description": "Dos caballeros forman una bandera. Solo puedes bajar uno por turno. Mientras no formen bandera, pueden ser atacados por Duendes o Espadas, a menos que estén protegidos por Castillo, Hada o Escudo."
+      },
+      "thief": {
+        "name": "Ladrón",
+        "description": "Permite robar una bandera a otro jugador. Si el jugador atacado tiene una Hechicera, puede contrarrestar el robo."
+      },
+      "sorceress": {
+        "name": "Hechicera",
+        "description": "Contrarresta el efecto del Ladrón. Cuando un jugador intenta robarte una bandera, puedes usar una Hechicera para evitarlo. Luego roba una carta del mazo para volver a tener 5."
+      },
+      "goblin": {
+        "name": "Duende",
+        "description": "Ataca a los Caballeros que aún no forman bandera. Un caballero atacado por un Duende no puede convertirse en bandera hasta eliminar el ataque. Se puede quitar con un Hada o una Catapulta."
+      },
+      "fairy": {
+        "name": "Hada",
+        "description": "Libera a un Caballero atacado por un Duende. También puede colocarse de forma preventiva para proteger al Caballero de futuros ataques de Duendes."
+      },
+      "sword": {
+        "name": "Espada",
+        "description": "Ataca a los Caballeros que aún no son bandera, impidiendo que se completen. Puede eliminarse con un Escudo o una Catapulta."
+      },
+      "shield": {
+        "name": "Escudo",
+        "description": "Protege a un Caballero del ataque de una Espada. Se puede usar para eliminar una Espada ya colocada o de manera preventiva."
+      },
+      "castle": {
+        "name": "Castillo",
+        "description": "Se coloca sobre un Caballero que no tenga ataques. Mientras el Castillo esté presente, ese Caballero no puede ser atacado hasta que se convierta en bandera."
+      },
+      "catapult": {
+        "name": "Catapulta",
+        "description": "Permite transferir todos los ataques (Duendes y/o Espadas) que tengas sobre tus Caballeros a otros jugadores. No puedes poner el mismo tipo de ataque a un jugador que ya lo tenga, pero sí otro distinto."
+      },
+      "card_swap": {
+        "name": "Cambio de cartas",
+        "description": "Intercambia toda tu mano con la de otro jugador. El jugador afectado roba una carta del mazo para volver a tener 5."
+      },
+      "dice": {
+        "name": "Dado",
+        "description": "Declara la guerra a otro jugador. Tira el dado y aplica el resultado:",
+        "effects": {
+          "1": "Robas una bandera al jugador atacado.",
+          "2": "El otro jugador pierde su siguiente turno.",
+          "3": "El otro jugador pierde todos los caballeros que no sean bandera.",
+          "4": "Batalla: ambos jugadores tiran el dado; quien saque el número más alto roba una bandera al otro.",
+          "5": "Tiras otra vez.",
+          "6": "El jugador atacado pierde todas sus banderas."
+        }
+      }
+    }
+  }
+}

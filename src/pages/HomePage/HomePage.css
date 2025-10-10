@@ -1,0 +1,124 @@
+.home-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  width: 100%;
+  position: relative;
+}
+
+.home-title {
+  font-size: 4rem;
+  margin-bottom: 4rem;
+  letter-spacing: 3px;
+  text-shadow: 0 4px 16px rgba(0, 0, 0, 0.8), 0 0 8px #bfa76f, 0 0 2px #fff;
+  color: #ffe082;
+  font-family: "UnifrakturCook", Georgia, serif;
+  filter: drop-shadow(0 0 8px rgba(0, 0, 0, 0.7));
+  text-align: center;
+  z-index: 5;
+}
+
+.cards-container {
+  position: relative;
+  width: 100%;
+  max-width: 800px;
+  height: 500px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  perspective: 1000px;
+  margin: 0 auto;
+}
+
+.card-wrapper {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.card-center {
+  z-index: 10;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  position: absolute;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+}
+
+.card-center > * {
+  pointer-events: auto;
+}
+
+.card-left,
+.card-right {
+  z-index: 5;
+  width: auto;
+  height: auto;
+}
+
+/* Tablet */
+@media (max-width: 1024px) {
+  .cards-container {
+    max-width: 90%;
+    height: 450px;
+  }
+}
+
+@media (max-width: 768px) {
+  .home-title {
+    font-size: 2.5rem;
+    margin-bottom: 3rem;
+  }
+
+  .cards-container {
+    max-width: 95%;
+    height: 400px;
+    padding: 0 1rem;
+  }
+}
+
+/* Mobile Large */
+@media (max-width: 600px) {
+  .home-title {
+    font-size: 2rem;
+    margin-bottom: 2rem;
+  }
+
+  .cards-container {
+    max-width: 100%;
+    height: 350px;
+    padding: 0 0.5rem;
+  }
+}
+
+/* Mobile Medium */
+@media (max-width: 480px) {
+  .home-title {
+    font-size: 1.75rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .cards-container {
+    height: 300px;
+    padding: 0 0.25rem;
+  }
+}
+
+/* Mobile Small */
+@media (max-width: 360px) {
+  .home-title {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+  }
+
+  .cards-container {
+    height: 250px;
+  }
+}
