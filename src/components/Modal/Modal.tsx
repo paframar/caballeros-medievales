@@ -1,11 +1,12 @@
 import { motion, AnimatePresence } from "motion/react";
+import type { ReactNode } from "react";
 import "./Modal.css";
 
 interface ModalProps {
   isOpen: boolean;
   onClose: () => void;
   title: string;
-  children: React.ReactNode;
+  children: ReactNode;
 }
 
 export const Modal = ({ isOpen, onClose, title, children }: ModalProps) => {
