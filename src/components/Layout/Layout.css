@@ -10,7 +10,8 @@
       #2d2d2dcc 70%,
       #181818ee 100%
     ),
-    url("../../assets/background.png") center center / cover no-repeat;
+    url("../../assets/backgrounds/background-2.png") center center / cover
+      no-repeat;
   background-blend-mode: multiply, normal;
   background-color: #181818;
   background-attachment: fixed;
