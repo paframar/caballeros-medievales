@@ -1,10 +1,12 @@
 .rules-page {
   width: 100%;
-  min-height: 100vh;
-  padding: 2rem;
+  height: 100%;
   display: flex;
   justify-content: center;
   align-items: flex-start;
+  padding-top: 2rem;
+  position: relative;
+  overflow-y: auto;
 }
 
 .rules-container {
@@ -13,35 +15,44 @@
   background: rgba(24, 24, 24, 0.85);
   border: 2px solid #bfa76f;
   border-radius: 12px;
-  padding: 3rem;
+  padding: 2rem;
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.6), 0 0 16px rgba(191, 167, 111, 0.3);
   backdrop-filter: blur(10px);
+  margin-bottom: 2rem;
 }
 
 .rules-title {
-  font-size: 3rem;
+  font-size: 2.5rem;
   color: #ffe082;
   text-align: center;
-  margin-bottom: 2rem;
+  margin-bottom: 1.5rem;
   text-shadow: 0 4px 16px rgba(0, 0, 0, 0.8), 0 0 8px #bfa76f;
   font-family: "UnifrakturCook", Georgia, serif;
 }
 
-.back-button {
+.back-button-icon {
+  position: fixed;
+  top: 2rem;
+  left: 2rem;
   background: linear-gradient(135deg, #bfa76f 0%, #a67c52 100%);
   color: #3a2712;
   border: 2px solid #bfa76f;
   border-radius: 8px;
-  padding: 0.75rem 1.5rem;
-  font-size: 1rem;
-  font-family: "UnifrakturCook", Georgia, serif;
+  padding: 0.75rem;
+  font-size: 1.5rem;
   cursor: pointer;
-  margin-bottom: 2rem;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
   transition: all 0.2s;
+  z-index: 1000;
+  width: 3rem;
+  height: 3rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
 }
 
-.back-button:hover {
+.back-button-icon:hover {
   box-shadow: 0 6px 20px rgba(191, 167, 111, 0.6);
 }
 
@@ -76,37 +87,36 @@
   margin-right: 0.75rem;
 }
 
-.cards-list {
-  display: flex;
-  flex-direction: column;
-  gap: 1.5rem;
+.cards-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 2rem 2rem;
+  row-gap: 3rem;
+  justify-items: center;
+  align-items: center;
+  padding: 1rem 0;
 }
 
-.card-rule {
-  background: rgba(45, 45, 45, 0.6);
-  border: 1px solid #6e5c3e;
-  border-radius: 8px;
-  padding: 1.5rem;
+.card-rule-item {
+  cursor: pointer;
   transition: all 0.3s;
 }
 
-.card-rule:hover {
-  background: rgba(45, 45, 45, 0.8);
-  border-color: #bfa76f;
-  box-shadow: 0 4px 16px rgba(191, 167, 111, 0.3);
+.card-rule-card {
+  width: clamp(140px, 20vw, 180px);
+  height: clamp(200px, 28vw, 250px);
+  border-radius: 12px;
+  overflow: hidden;
+  border: 2px solid #bfa76f;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+  cursor: pointer;
+  transition: all 0.3s;
 }
 
-.card-rule h3 {
-  font-size: 1.5rem;
-  color: #bfa76f;
-  margin-bottom: 0.75rem;
-  font-family: "UnifrakturCook", Georgia, serif;
-}
-
-.card-rule p {
-  font-size: 1rem;
-  color: #e0e0e0;
-  font-family: Georgia, serif;
+.card-rule-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
 .dice-effects {
@@ -119,10 +129,28 @@
   color: #d0d0d0;
   margin-bottom: 0.5rem;
   font-family: Georgia, serif;
+  list-style: none;
 }
 
 .dice-effects li::before {
   content: "🎲";
+  margin-right: 0.5rem;
+}
+
+.modal-card-animation {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+
+.modal-card-image {
+  width: 200px;
+  height: 280px;
+  object-fit: cover;
+  border-radius: 12px;
+  border: 2px solid #bfa76f;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.6);
 }
 
 @media (max-width: 768px) {
@@ -142,6 +170,17 @@
   .rules-section li {
     font-size: 1rem;
   }
+
+  .cards-grid {
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    gap: 1.5rem 1.5rem;
+    row-gap: 2.5rem;
+  }
+
+  .modal-card-image {
+    width: 160px;
+    height: 220px;
+  }
 }
 
 @media (max-width: 600px) {
@@ -155,5 +194,16 @@
 
   .rules-title {
     font-size: 1.75rem;
+  }
+
+  .cards-grid {
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+    gap: 1rem 1rem;
+    row-gap: 2rem;
+  }
+
+  .modal-card-image {
+    width: 140px;
+    height: 200px;
   }
 }

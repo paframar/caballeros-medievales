@@ -1,5 +1,5 @@
 .layout {
-  min-height: 100vh;
+  height: 100vh;
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -14,6 +14,7 @@
   background-blend-mode: multiply, normal;
   background-color: #181818;
   background-attachment: fixed;
+  overflow: hidden;
 }
 
 .layout-content {
@@ -21,9 +22,10 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
   padding: 2rem;
-  min-height: calc(100vh - 4rem);
+  height: calc(100vh - 4rem);
+  overflow-y: auto;
 }
 
 .layout-footer {

@@ -1,75 +1,105 @@
 .contact-page {
   width: 100%;
-  min-height: 100vh;
-  padding: 2rem;
+  height: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
+  position: relative;
+  padding: 1rem;
 }
 
 .contact-container {
-  max-width: 700px;
   width: 100%;
+  max-width: 80vw;
+  height: 90vh;
   background: rgba(24, 24, 24, 0.85);
   border: 2px solid #bfa76f;
   border-radius: 12px;
-  padding: 3rem;
+  padding: 2rem;
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.6), 0 0 16px rgba(191, 167, 111, 0.3);
   backdrop-filter: blur(10px);
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
 }
 
 .contact-title {
-  font-size: 3rem;
+  font-size: clamp(1.5rem, 4vw, 2.5rem);
   color: #ffe082;
   text-align: center;
-  margin-bottom: 2rem;
+  margin-bottom: 1rem;
   text-shadow: 0 4px 16px rgba(0, 0, 0, 0.8), 0 0 8px #bfa76f;
   font-family: "UnifrakturCook", Georgia, serif;
+  flex-shrink: 0;
 }
 
-.back-button {
+.back-button-icon {
+  position: fixed;
+  top: 2rem;
+  left: 2rem;
   background: linear-gradient(135deg, #bfa76f 0%, #a67c52 100%);
   color: #3a2712;
   border: 2px solid #bfa76f;
   border-radius: 8px;
-  padding: 0.75rem 1.5rem;
-  font-size: 1rem;
-  font-family: "UnifrakturCook", Georgia, serif;
+  padding: 0.75rem;
+  font-size: 1.5rem;
   cursor: pointer;
-  margin-bottom: 2rem;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
   transition: all 0.2s;
+  z-index: 1000;
+  width: 3rem;
+  height: 3rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
 }
 
-.back-button:hover {
+.back-button-icon:hover {
   box-shadow: 0 6px 20px rgba(191, 167, 111, 0.6);
 }
 
 .contact-content {
   text-align: center;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  min-height: 0;
 }
 
 .contact-description {
-  font-size: 1.2rem;
+  font-size: clamp(1rem, 2.5vw, 1.2rem);
   color: #f5f5f5;
-  line-height: 1.8;
-  margin-bottom: 2.5rem;
+  line-height: 1.6;
+  margin-bottom: 1rem;
   font-family: Georgia, serif;
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  flex-shrink: 0;
+}
+
+.contact-description p {
+  margin: 0;
 }
 
 .contact-info {
   display: flex;
   flex-direction: column;
-  gap: 2rem;
-  margin-bottom: 2.5rem;
+  gap: clamp(1rem, 3vh, 1.5rem);
+  margin-bottom: 1rem;
+  flex: 1;
+  justify-content: center;
 }
 
 .contact-item {
   background: rgba(45, 45, 45, 0.6);
   border: 1px solid #6e5c3e;
   border-radius: 8px;
-  padding: 1.5rem;
+  padding: clamp(1rem, 2vh, 1.5rem);
   transition: all 0.3s;
+  flex-shrink: 0;
 }
 
 .contact-item:hover {
@@ -79,57 +109,47 @@
 }
 
 .contact-item h3 {
-  font-size: 1.5rem;
+  font-size: clamp(1.2rem, 3vw, 1.5rem);
   color: #bfa76f;
-  margin-bottom: 0.75rem;
+  margin-bottom: 0.5rem;
   font-family: "UnifrakturCook", Georgia, serif;
 }
 
 .contact-item p {
-  font-size: 1.1rem;
+  font-size: clamp(1rem, 2.5vw, 1.1rem);
   color: #e0e0e0;
   font-family: Georgia, serif;
 }
 
 .contact-footer-text {
-  font-size: 1.1rem;
+  font-size: clamp(0.9rem, 2.5vw, 1.1rem);
   color: #e6c97a;
   font-style: italic;
   font-family: Georgia, serif;
+  flex-shrink: 0;
 }
 
 @media (max-width: 768px) {
   .contact-container {
-    padding: 2rem;
+    padding: 1.5rem;
+    max-width: 95vw;
+    height: 95vh;
   }
 
-  .contact-title {
-    font-size: 2rem;
-  }
-
-  .contact-description {
-    font-size: 1rem;
-  }
-
-  .contact-item h3 {
-    font-size: 1.25rem;
-  }
-
-  .contact-item p {
-    font-size: 1rem;
+  .about-cards-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
   }
 }
 
 @media (max-width: 600px) {
   .contact-page {
-    padding: 1rem;
+    padding: 0.5rem;
   }
 
   .contact-container {
-    padding: 1.5rem;
-  }
-
-  .contact-title {
-    font-size: 1.75rem;
+    padding: 1rem;
+    max-width: 98vw;
+    height: 98vh;
   }
 }

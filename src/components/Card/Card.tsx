@@ -54,10 +54,26 @@ export const Card = ({
       {isHovered && hoverText && (
         <motion.div
           className={`card-hover-text card-hover-text--${hoverTextPosition}`}
-          initial={{ opacity: 0, y: -10 }}
-          animate={{ opacity: 1, y: 0 }}
-          exit={{ opacity: 0, y: -10 }}
-          transition={{ duration: 0.2 }}
+          initial={
+            hoverTextPosition === "left"
+              ? { opacity: 0, x: -50, y: -20, scale: 0.8 }
+              : hoverTextPosition === "right"
+              ? { opacity: 0, x: 50, y: -20, scale: 0.8 }
+              : { opacity: 0, y: -10 }
+          }
+          animate={
+            hoverTextPosition === "left" || hoverTextPosition === "right"
+              ? { opacity: 1, x: 0, y: 0, scale: 1 }
+              : { opacity: 1, y: 0 }
+          }
+          exit={
+            hoverTextPosition === "left"
+              ? { opacity: 0, x: -50, y: -20, scale: 0.8 }
+              : hoverTextPosition === "right"
+              ? { opacity: 0, x: 50, y: -20, scale: 0.8 }
+              : { opacity: 0, y: -10 }
+          }
+          transition={{ duration: 0.3, ease: "easeOut" }}
         >
           {hoverText}
         </motion.div>

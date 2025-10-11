@@ -97,7 +97,7 @@ export const HomePage = () => {
             imageSrc={banderaImg}
             imageAlt="Bandera"
             onClick={handleFlagClick}
-            hoverText={isExpanded ? t("nav.rules") : t("nav.startPlaying")}
+            hoverText={isExpanded ? "Las Reglas" : t("nav.startPlaying")}
             hoverTextPosition="center"
             style={{ zIndex: 10 }}
           />
@@ -128,7 +128,7 @@ export const HomePage = () => {
                 imageSrc={caballeroImg}
                 imageAlt="Caballero"
                 onClick={handleKnightClick}
-                hoverText={t("nav.about")}
+                hoverText="El&#10;Juego"
                 hoverTextPosition="right"
               />
             </motion.div>

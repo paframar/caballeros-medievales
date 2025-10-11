@@ -14,6 +14,18 @@ export const ContactPage = () => {
       animate={{ opacity: 1 }}
       transition={{ duration: 0.5 }}
     >
+      <motion.button
+        className="back-button-icon"
+        onClick={() => navigate("/")}
+        whileHover={{ scale: 1.1 }}
+        whileTap={{ scale: 0.95 }}
+        initial={{ opacity: 0, x: -20 }}
+        animate={{ opacity: 1, x: 0 }}
+        transition={{ delay: 0.1, duration: 0.5 }}
+      >
+        ←
+      </motion.button>
+
       <div className="contact-container">
         <motion.h1
           className="contact-title"
@@ -24,25 +36,16 @@ export const ContactPage = () => {
           {t("nav.contact")}
         </motion.h1>
 
-        <motion.button
-          className="back-button"
-          onClick={() => navigate("/")}
-          whileHover={{ scale: 1.05 }}
-          whileTap={{ scale: 0.95 }}
-        >
-          ← Volver al inicio
-        </motion.button>
-
         <motion.div
           className="contact-content"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.3, duration: 0.6 }}
         >
-          <p className="contact-description">
-            ¿Tienes preguntas sobre Caballeros Medievales? ¿Quieres saber más
-            sobre el juego o cómo conseguirlo?
-          </p>
+          <div className="contact-description">
+            <p>¿Tienes preguntas sobre Caballeros Medievales?</p>
+            <p>¿Quieres saber más sobre el juego o cómo conseguirlo?</p>
+          </div>
 
           <div className="contact-info">
             <div className="contact-item">
@@ -57,7 +60,7 @@ export const ContactPage = () => {
 
             <div className="contact-item">
               <h3>📍 Ubicación</h3>
-              <p>Reino Medieval Digital</p>
+              <p>España</p>
             </div>
           </div>
 

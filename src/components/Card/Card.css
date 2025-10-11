@@ -61,7 +61,7 @@
   font-family: "UnifrakturCook", Georgia, serif;
   pointer-events: none;
   z-index: 100;
-  white-space: nowrap;
+  white-space: pre-line;
   padding: 0.5rem 1.5rem;
   background: rgba(0, 0, 0, 0.7);
   border-radius: 8px;
@@ -79,15 +79,15 @@
 }
 
 .card-hover-text--left {
-  top: 50%;
-  right: calc(100% + 20px);
-  transform: translateY(-50%);
+  top: 20%;
+  left: 10%;
+  transform: none;
 }
 
 .card-hover-text--right {
-  top: 50%;
-  left: calc(100% + 20px);
-  transform: translateY(-50%);
+  top: 20%;
+  right: 20%;
+  transform: none;
 }
 
 @media (max-width: 600px) {
@@ -102,10 +102,14 @@
   }
 
   .card-hover-text--left {
-    right: calc(100% + 10px);
+    top: 15%;
+    left: 5%;
+    font-size: 1.2rem;
   }
 
   .card-hover-text--right {
-    left: calc(100% + 10px);
+    top: 15%;
+    right: 15%;
+    font-size: 1rem;
   }
 }

@@ -1,0 +1,132 @@
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.8);
+  z-index: 9998;
+  backdrop-filter: blur(4px);
+}
+
+.modal-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  padding: 2rem;
+}
+
+.modal-container > div {
+  max-width: 700px;
+  width: 100%;
+  max-height: 80vh;
+  overflow-y: auto;
+}
+
+.modal-content {
+  background: rgba(24, 24, 24, 0.95);
+  border: 2px solid #bfa76f;
+  border-radius: 12px;
+  padding: 2.5rem;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.6),
+    0 12px 40px rgba(191, 167, 111, 0.8), 0 4px 16px rgba(230, 201, 122, 0.9),
+    0 0 24px rgba(191, 167, 111, 0.7), 0 0 40px rgba(191, 167, 111, 0.5);
+  backdrop-filter: blur(10px);
+  position: relative;
+  width: 100%;
+}
+
+.modal-close {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background: linear-gradient(135deg, #bfa76f 0%, #a67c52 100%);
+  color: #3a2712;
+  border: 2px solid #bfa76f;
+  border-radius: 50%;
+  width: 2.5rem;
+  height: 2.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-size: 1.5rem;
+  transition: all 0.2s;
+  font-weight: bold;
+}
+
+.modal-close:hover {
+  box-shadow: 0 4px 16px rgba(191, 167, 111, 0.6);
+  transform: scale(1.1);
+}
+
+.modal-title {
+  font-size: 2.5rem;
+  color: #ffe082;
+  text-align: center;
+  margin-bottom: 2rem;
+  text-shadow: 0 4px 16px rgba(0, 0, 0, 0.8), 0 0 8px #bfa76f;
+  font-family: "UnifrakturCook", Georgia, serif;
+  padding-right: 3rem;
+}
+
+.modal-body {
+  font-size: 1.1rem;
+  color: #f5f5f5;
+  line-height: 1.8;
+  font-family: Georgia, serif;
+}
+
+.modal-body p {
+  margin-bottom: 1rem;
+}
+
+.modal-body ul {
+  list-style: none;
+  padding-left: 0;
+  margin-top: 1rem;
+}
+
+.modal-body ul li {
+  margin-bottom: 0.75rem;
+  padding-left: 0.5rem;
+  line-height: 2;
+}
+
+@media (max-width: 768px) {
+  .modal-container {
+    padding: 1rem;
+  }
+
+  .modal-content {
+    padding: 2rem;
+  }
+
+  .modal-title {
+    font-size: 2rem;
+  }
+
+  .modal-body {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .modal-container {
+    padding: 0.5rem;
+  }
+
+  .modal-content {
+    padding: 1.5rem;
+  }
+
+  .modal-title {
+    font-size: 1.75rem;
+  }
+}
