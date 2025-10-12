@@ -3,7 +3,9 @@ import { useNavigate } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import { motion, AnimatePresence } from "motion/react";
 import { Card } from "../../components/Card/Card";
+import { FlippableCard } from "../../components/FlippableCard";
 import banderaImg from "../../assets/cards/caballeros-medievales-bandera.png";
+import dorsoImg from "../../assets/cards/caballeros-medievales-dorso.png";
 import castilloImg from "../../assets/cards/caballeros-medievales-castillo.png";
 import caballeroImg from "../../assets/cards/caballeros-medievales-caballero.png";
 import "./HomePage.css";
@@ -11,6 +13,7 @@ import "./HomePage.css";
 export const HomePage = () => {
   const { t } = useTranslation();
   const navigate = useNavigate();
+  const [isFlipped, setIsFlipped] = useState(false);
   const [isExpanded, setIsExpanded] = useState(false);
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
 
@@ -41,9 +44,16 @@ export const HomePage = () => {
   const animValues = getAnimationValues();
 
   const handleFlagClick = () => {
-    if (!isExpanded) {
-      setIsExpanded(true);
-    } else {
+    if (!isFlipped) {
+      // Primera fase: voltear la carta
+      setIsFlipped(true);
+
+      // Después del flip, expandir las otras cartas
+      setTimeout(() => {
+        setIsExpanded(true);
+      }, 600); // Duración de la animación de flip
+    } else if (isFlipped && isExpanded) {
+      // Si ya está todo expandido, navegar a las reglas
       navigate("/rules");
     }
   };
@@ -101,24 +111,49 @@ export const HomePage = () => {
         </AnimatePresence>
 
         {/* CARD CENTER */}
-        <motion.div
-          className="card-wrapper card-center"
-          initial={{ opacity: 0, scale: 0.8 }}
-          animate={{
-            opacity: 1,
-            scale: animValues.scale,
-          }}
-          transition={{ delay: 0.3, duration: 0.5 }}
-        >
-          <Card
-            imageSrc={banderaImg}
-            imageAlt="Bandera"
-            onClick={handleFlagClick}
-            hoverText={isExpanded ? "Las Reglas" : t("nav.startPlaying")}
-            hoverTextPosition="center"
-            style={{ zIndex: 10 }}
-          />
-        </motion.div>
+        <AnimatePresence mode="wait">
+          {!isFlipped ? (
+            <motion.div
+              key="flippable-card"
+              className="card-wrapper card-center"
+              initial={{ opacity: 0, scale: 0.8 }}
+              animate={{
+                opacity: 1,
+                scale: animValues.scale,
+              }}
+              exit={{ opacity: 0, scale: 0.8 }}
+              transition={{ delay: 0.3, duration: 0.5 }}
+            >
+              <FlippableCard
+                frontImage={dorsoImg}
+                backImage={banderaImg}
+                title={t("nav.startPlaying")}
+                onClick={handleFlagClick}
+                isFlipped={false}
+                onHover={false}
+              />
+            </motion.div>
+          ) : (
+            <motion.div
+              key="regular-card"
+              className="card-wrapper card-center"
+              initial={{ opacity: 0, scale: 0.8 }}
+              animate={{
+                opacity: 1,
+                scale: animValues.scale,
+              }}
+              transition={{ duration: 0.5 }}
+            >
+              <Card
+                imageSrc={banderaImg}
+                imageAlt="Bandera"
+                onClick={handleFlagClick}
+                hoverText="Las Reglas"
+                hoverTextPosition="center"
+              />
+            </motion.div>
+          )}
+        </AnimatePresence>
 
         {/* CARD RIGHT */}
         <AnimatePresence mode="wait">
@@ -145,7 +180,7 @@ export const HomePage = () => {
                 imageSrc={caballeroImg}
                 imageAlt="Caballero"
                 onClick={handleKnightClick}
-                hoverText="El&#10;Juego"
+                hoverText="El Juego"
                 hoverTextPosition="right"
               />
             </motion.div>

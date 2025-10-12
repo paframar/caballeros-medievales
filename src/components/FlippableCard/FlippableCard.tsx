@@ -7,6 +7,9 @@ interface FlippableCardProps {
   backImage: string;
   title: string;
   onClick: () => void;
+  isFlipped?: boolean;
+  onHover?: boolean;
+  showHoverText?: boolean;
 }
 
 export const FlippableCard = ({
@@ -14,22 +17,45 @@ export const FlippableCard = ({
   backImage,
   title,
   onClick,
+  isFlipped = false,
+  onHover = true,
+  showHoverText,
 }: FlippableCardProps) => {
-  const [isFlipped, setIsFlipped] = useState(false);
+  const [isHoverFlipped, setIsHoverFlipped] = useState(false);
+  const [isHovering, setIsHovering] = useState(false);
+
+  // Si onHover es true, usar el estado interno. Si no, usar el prop isFlipped
+  const shouldFlip = onHover ? isHoverFlipped : isFlipped;
+
+  const handleMouseEnter = () => {
+    setIsHovering(true);
+    if (onHover) {
+      setIsHoverFlipped(true);
+    }
+  };
+
+  const handleMouseLeave = () => {
+    setIsHovering(false);
+    if (onHover) {
+      setIsHoverFlipped(false);
+    }
+  };
+
+  // Si showHoverText está definido, usarlo. Si no, usar la lógica por defecto
+  const showText =
+    showHoverText !== undefined ? showHoverText : isHovering || isFlipped;
 
   return (
     <div className="flippable-card-wrapper">
       <motion.div
         className="flippable-card-container"
-        onMouseEnter={() => setIsFlipped(true)}
-        onMouseLeave={() => setIsFlipped(false)}
+        onMouseEnter={handleMouseEnter}
+        onMouseLeave={handleMouseLeave}
         onClick={onClick}
-        whileHover={{ scale: 1.05 }}
-        whileTap={{ scale: 0.98 }}
       >
         <motion.div
           className="flippable-card"
-          animate={{ rotateY: isFlipped ? 180 : 0 }}
+          animate={{ rotateY: shouldFlip ? 180 : 0 }}
           transition={{ duration: 0.6, type: "spring", stiffness: 100 }}
           style={{ transformStyle: "preserve-3d" }}
         >
@@ -46,7 +72,7 @@ export const FlippableCard = ({
       </motion.div>
 
       {/* Hover text */}
-      {isFlipped && (
+      {showText && (
         <motion.div
           className="flippable-card-hover-text"
           initial={{ opacity: 0, y: -10 }}

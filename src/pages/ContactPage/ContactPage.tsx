@@ -27,66 +27,48 @@ export const ContactPage = () => {
         ←
       </motion.button>
 
-      <div className="contact-container">
-        <motion.div
-          className="contact-illustration"
-          initial={{ opacity: 0, x: -50 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ delay: 0.2, duration: 0.6 }}
-        >
-          <img src={background5Img} alt="Ilustración medieval de contacto" />
-        </motion.div>
+      <motion.h1
+        className="contact-title"
+        initial={{ opacity: 0, y: -30 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ delay: 0.2, duration: 0.6 }}
+      >
+        {t("nav.contact")}
+      </motion.h1>
 
-        <motion.div
-          className="contact-content-wrapper"
-          initial={{ opacity: 0, x: 50 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ delay: 0.3, duration: 0.6 }}
-        >
-          <motion.h1
-            className="contact-title"
-            initial={{ opacity: 0, y: -30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.4, duration: 0.6 }}
-          >
-            {t("nav.contact")}
-          </motion.h1>
+      <motion.div
+        className="contact-content"
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ delay: 0.3, duration: 0.6 }}
+      >
+        <div className="contact-description">
+          <p>¿Tienes preguntas sobre Caballeros Medievales?</p>
+          <p>¿Quieres saber más sobre el juego o cómo conseguirlo?</p>
+        </div>
 
-          <motion.div
-            className="contact-content"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.5, duration: 0.6 }}
-          >
-            <div className="contact-description">
-              <p>¿Tienes preguntas sobre Caballeros Medievales?</p>
-              <p>¿Quieres saber más sobre el juego o cómo conseguirlo?</p>
-            </div>
+        <div className="contact-info">
+          <div className="contact-item">
+            <h3>📧 Email</h3>
+            <p>contacto@caballerosmedievales.com</p>
+          </div>
 
-            <div className="contact-info">
-              <div className="contact-item">
-                <h3>📧 Email</h3>
-                <p>contacto@caballerosmedievales.com</p>
-              </div>
+          <div className="contact-item">
+            <h3>🏰 Redes Sociales</h3>
+            <p>@caballerosmedievales</p>
+          </div>
 
-              <div className="contact-item">
-                <h3>🏰 Redes Sociales</h3>
-                <p>@caballerosmedievales</p>
-              </div>
+          <div className="contact-item">
+            <h3>📍 Ubicación</h3>
+            <p>España</p>
+          </div>
+        </div>
 
-              <div className="contact-item">
-                <h3>📍 Ubicación</h3>
-                <p>España</p>
-              </div>
-            </div>
-
-            <p className="contact-footer-text">
-              Estamos aquí para ayudarte en tu aventura medieval. ¡No dudes en
-              contactarnos!
-            </p>
-          </motion.div>
-        </motion.div>
-      </div>
+        <p className="contact-footer-text">
+          Estamos aquí para ayudarte en tu aventura medieval. ¡No dudes en
+          contactarnos!
+        </p>
+      </motion.div>
     </motion.div>
   );
 };

@@ -1,9 +1,8 @@
 import { useState } from "react";
 import { useTranslation } from "react-i18next";
-import { motion } from "motion/react";
+import { motion, AnimatePresence } from "motion/react";
 import { useNavigate } from "react-router-dom";
 import { FlippableCard } from "../../components/FlippableCard";
-import { Modal } from "../../components/Modal";
 import dorsoImg from "../../assets/cards/caballeros-medievales-dorso.png";
 import escudoImg from "../../assets/cards/caballeros-medievales-escudo.png";
 import hechiceraImg from "../../assets/cards/caballeros-medievales-hechicera.png";
@@ -16,13 +15,16 @@ type SectionType = "historia" | "mision" | "equipo" | "porque" | null;
 export const AboutPage = () => {
   const { t } = useTranslation();
   const navigate = useNavigate();
-  const [activeModal, setActiveModal] = useState<SectionType>(null);
+  const [activeSection, setActiveSection] = useState<SectionType>("historia");
+  const [hasClickedNext, setHasClickedNext] = useState(false);
 
   const sections = [
     {
       id: "historia" as const,
       title: "Nuestra Historia",
       backImage: escudoImg,
+      cardLegend:
+        "Usa el escudo para proteger a tus caballeros de las espadas enemigas.",
       content: (
         <p>
           Caballeros Medievales nació de la imaginación y creatividad de una
@@ -40,6 +42,8 @@ export const AboutPage = () => {
       id: "mision" as const,
       title: "Nuestra Misión",
       backImage: hechiceraImg,
+      cardLegend:
+        "¿Intentan robarte una bandera? Usa la hechicera para impedirlo y asegurar tu victoria.",
       content: (
         <p>
           Compartir la pasión por el juego de mesa y crear momentos inolvidables
@@ -56,6 +60,8 @@ export const AboutPage = () => {
       id: "equipo" as const,
       title: "El Equipo",
       backImage: espadaImg,
+      cardLegend:
+        "Ataca los caballeros rivales e impideles a convertirse en bandera.",
       content: (
         <p>
           Somos una empresa familiar que trabaja con amor y dedicación para dar
@@ -72,6 +78,8 @@ export const AboutPage = () => {
       id: "porque" as const,
       title: "¿Por qué Caballeros Medievales?",
       backImage: hadaImg,
+      cardLegend:
+        "Las hadas mantienen a los duendes alejados de los caballeros.",
       content: (
         <ul>
           <li>⚔️ Diseñado con amor desde una perspectiva familiar</li>
@@ -83,6 +91,24 @@ export const AboutPage = () => {
       ),
     },
   ];
+
+  const currentIndex = sections.findIndex((s) => s.id === activeSection);
+  const currentSection = sections[currentIndex];
+  const canGoPrev = currentIndex > 0;
+  const canGoNext = currentIndex < sections.length - 1;
+
+  const handleNext = () => {
+    if (canGoNext) {
+      setActiveSection(sections[currentIndex + 1].id);
+      setHasClickedNext(true);
+    }
+  };
+
+  const handlePrev = () => {
+    if (canGoPrev) {
+      setActiveSection(sections[currentIndex - 1].id);
+    }
+  };
 
   return (
     <motion.div
@@ -103,64 +129,123 @@ export const AboutPage = () => {
         ←
       </motion.button>
 
-      <div className="about-container">
-        <motion.h1
-          className="about-title"
-          initial={{ opacity: 0, y: -30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.2, duration: 0.6 }}
-        >
-          {t("nav.about")}
-        </motion.h1>
+      <motion.h1
+        className="about-title"
+        initial={{ opacity: 0, y: -30 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ delay: 0.2, duration: 0.6 }}
+      >
+        {t("nav.about")}
+      </motion.h1>
 
+      <div className="about-main-container">
+        {/* Single Large Card */}
         <motion.div
-          className="about-cards-grid"
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
+          className="about-card-large-wrapper"
+          initial={{ opacity: 0, x: -20 }}
+          animate={{ opacity: 1, x: 0 }}
           transition={{ delay: 0.3, duration: 0.6 }}
         >
-          {sections.map((section, index) => (
-            <motion.div
-              key={section.id}
-              initial={{ opacity: 0, scale: 0.8 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ delay: 0.4 + index * 0.1, duration: 0.5 }}
-            >
+          <div className="about-card-large" style={{ flexDirection: "column" }}>
+            <AnimatePresence mode="wait">
               <motion.div
-                whileHover={{
-                  x: [0, -3, 3, -3, 0],
-                  y: [0, -2, 2, -2, 0],
-                  rotate: [0, -2, 2, -1, 0],
-                }}
-                transition={{
-                  duration: 0.6,
-                  times: [0, 0.2, 0.4, 0.6, 1],
-                  ease: "easeInOut",
-                }}
+                key={activeSection}
+                initial={{ opacity: 0, rotateY: -180 }}
+                animate={{ opacity: 1, rotateY: 0 }}
+                exit={{ opacity: 0, rotateY: 180 }}
+                transition={{ duration: 0.6 }}
               >
                 <FlippableCard
                   frontImage={dorsoImg}
-                  backImage={section.backImage}
-                  title={section.title}
-                  onClick={() => setActiveModal(section.id)}
+                  backImage={currentSection.backImage}
+                  title=""
+                  onClick={() => {}}
+                  onHover={false}
+                  isFlipped={true}
                 />
               </motion.div>
+            </AnimatePresence>
+            <AnimatePresence mode="wait">
+              <motion.p
+                key={activeSection}
+                className="about-card-legend"
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -10 }}
+                transition={{ duration: 0.4, delay: 0.2 }}
+              >
+                {currentSection.cardLegend}
+              </motion.p>
+            </AnimatePresence>
+          </div>
+        </motion.div>
+
+        {/* Content Container */}
+        <motion.div
+          className="about-content-container"
+          initial={{ opacity: 0, x: 20 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ delay: 0.5, duration: 0.6 }}
+        >
+          <div className="about-content-header">
+            {canGoPrev && (
+              <motion.button
+                className="section-nav-button prev"
+                onClick={handlePrev}
+                whileHover={{ scale: 1.1 }}
+                whileTap={{ scale: 0.95 }}
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ delay: 0.6 }}
+              >
+                ←
+              </motion.button>
+            )}
+
+            <AnimatePresence mode="wait">
+              <motion.h2
+                key={activeSection}
+                className="about-content-title"
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -10 }}
+                transition={{ duration: 0.3 }}
+              >
+                {currentSection.title}
+              </motion.h2>
+            </AnimatePresence>
+
+            {canGoNext && (
+              <motion.button
+                className={`section-nav-button next ${
+                  !hasClickedNext && currentIndex === 0 ? "pulse" : ""
+                }`}
+                onClick={handleNext}
+                whileHover={{ scale: 1.1 }}
+                whileTap={{ scale: 0.95 }}
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ delay: 0.6 }}
+              >
+                →
+              </motion.button>
+            )}
+          </div>
+
+          <AnimatePresence mode="wait">
+            <motion.div
+              key={activeSection}
+              className="about-content-text"
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -10 }}
+              transition={{ duration: 0.3 }}
+            >
+              {currentSection.content}
             </motion.div>
-          ))}
+          </AnimatePresence>
         </motion.div>
       </div>
-
-      {/* Modals */}
-      {sections.map((section) => (
-        <Modal
-          key={section.id}
-          isOpen={activeModal === section.id}
-          onClose={() => setActiveModal(null)}
-          title={section.title}
-        >
-          {section.content}
-        </Modal>
-      ))}
     </motion.div>
   );
 };

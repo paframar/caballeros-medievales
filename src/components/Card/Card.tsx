@@ -1,5 +1,6 @@
 import { motion } from "motion/react";
 import { useState } from "react";
+import type { MotionProps } from "motion/react";
 import "./Card.css";
 
 interface CardProps {
@@ -10,9 +11,9 @@ interface CardProps {
   hoverTextPosition?: "center" | "left" | "right";
   className?: string;
   style?: React.CSSProperties;
-  initial?: any;
-  animate?: any;
-  transition?: any;
+  initial?: MotionProps["initial"];
+  animate?: MotionProps["animate"];
+  transition?: MotionProps["transition"];
 }
 
 export const Card = ({
@@ -28,23 +29,28 @@ export const Card = ({
   transition,
 }: CardProps) => {
   const [isHovered, setIsHovered] = useState(false);
+  const isDisabled = style?.pointerEvents === "none";
 
   return (
     <div className="card-container">
       <motion.div
         className={`game-card ${className}`}
         onClick={onClick}
-        onMouseEnter={() => setIsHovered(true)}
+        onMouseEnter={() => !isDisabled && setIsHovered(true)}
         onMouseLeave={() => setIsHovered(false)}
         initial={initial}
         animate={animate}
         transition={transition}
         style={style}
-        whileHover={{
-          scale: 1.05,
-          boxShadow:
-            "0 12px 40px rgba(191, 167, 111, 0.8), 0 4px 16px rgba(230, 201, 122, 0.9), 0 0 24px rgba(191, 167, 111, 0.7)",
-        }}
+        whileHover={
+          !isDisabled
+            ? {
+                scale: 1.05,
+                boxShadow:
+                  "0 12px 40px rgba(191, 167, 111, 0.8), 0 4px 16px rgba(230, 201, 122, 0.9), 0 0 24px rgba(191, 167, 111, 0.7)",
+              }
+            : {}
+        }
       >
         {isHovered && hoverText && <div className="card-overlay" />}
         <div className="card-image-wrapper">

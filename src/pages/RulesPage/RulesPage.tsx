@@ -123,31 +123,13 @@ export const RulesPage = () => {
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ delay: 0.25 + index * 0.03, duration: 0.4 }}
                 onClick={() => setActiveModal(cardName)}
-                whileHover={{
-                  scale: 1.15,
-                  boxShadow:
-                    "0 12px 40px rgba(191, 167, 111, 0.8), 0 4px 16px rgba(230, 201, 122, 0.9), 0 0 24px rgba(191, 167, 111, 0.7)",
-                }}
               >
-                <motion.div
-                  className="card-rule-card"
-                  whileHover={{
-                    x: [0, -3, 3, -3, 0],
-                    y: [0, -2, 2, -2, 0],
-                    rotate: [0, -2, 2, -1, 0],
-                    scale: [1, 1, 1, 1, 1.05],
-                  }}
-                  transition={{
-                    duration: 0.6,
-                    times: [0, 0.2, 0.4, 0.6, 1],
-                    ease: "easeInOut",
-                  }}
-                >
+                <div className="card-rule-card">
                   <img
                     src={cardImages[cardName]}
                     alt={t(`rules.cards.${cardName}.name`)}
                   />
-                </motion.div>
+                </div>
               </motion.div>
             ))}
           </div>
