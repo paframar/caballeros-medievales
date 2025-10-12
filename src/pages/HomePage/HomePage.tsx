@@ -23,6 +23,23 @@ export const HomePage = () => {
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
+  // Función para calcular valores de animación basados en el tamaño de la ventana
+  const getAnimationValues = () => {
+    if (windowWidth < 480) {
+      return { x: 70, y: 0, rotate: 8, scale: 0.85 };
+    } else if (windowWidth < 600) {
+      return { x: 90, y: 10, rotate: 10, scale: 0.9 };
+    } else if (windowWidth < 768) {
+      return { x: 110, y: 15, rotate: 11, scale: 0.95 };
+    } else if (windowWidth < 1024) {
+      return { x: 150, y: 25, rotate: 12, scale: 0.98 };
+    } else {
+      return { x: 190, y: 35, rotate: 13, scale: 1 };
+    }
+  };
+
+  const animValues = getAnimationValues();
+
   const handleFlagClick = () => {
     if (!isExpanded) {
       setIsExpanded(true);
@@ -60,10 +77,10 @@ export const HomePage = () => {
               initial={{ opacity: 0, x: 0, y: 0, rotate: 0 }}
               animate={{
                 opacity: 1,
-                x: windowWidth < 480 ? -80 : windowWidth < 768 ? -120 : -180,
-                y: windowWidth < 480 ? 40 : windowWidth < 768 ? 60 : 80,
-                rotate: -15,
-                scale: windowWidth < 480 ? 0.7 : windowWidth < 768 ? 0.8 : 1,
+                x: -animValues.x,
+                y: animValues.y,
+                rotate: -animValues.rotate,
+                scale: animValues.scale,
               }}
               transition={{
                 type: "spring",
@@ -89,7 +106,7 @@ export const HomePage = () => {
           initial={{ opacity: 0, scale: 0.8 }}
           animate={{
             opacity: 1,
-            scale: windowWidth < 480 ? 0.7 : windowWidth < 768 ? 0.8 : 1,
+            scale: animValues.scale,
           }}
           transition={{ delay: 0.3, duration: 0.5 }}
         >
@@ -112,10 +129,10 @@ export const HomePage = () => {
               initial={{ opacity: 0, x: 0, y: 0, rotate: 0 }}
               animate={{
                 opacity: 1,
-                x: windowWidth < 480 ? 80 : windowWidth < 768 ? 120 : 180,
-                y: windowWidth < 480 ? 40 : windowWidth < 768 ? 60 : 80,
-                rotate: 15,
-                scale: windowWidth < 480 ? 0.7 : windowWidth < 768 ? 0.8 : 1,
+                x: animValues.x,
+                y: animValues.y,
+                rotate: animValues.rotate,
+                scale: animValues.scale,
               }}
               transition={{
                 type: "spring",

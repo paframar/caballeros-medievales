@@ -6,8 +6,8 @@
 
 .game-card {
   position: relative;
-  width: 280px;
-  height: 400px;
+  width: clamp(140px, 15vw, 250px);
+  height: clamp(200px, 21vw, 350px);
   border-radius: 18px 22px 16px 20px / 20px 16px 22px 18px;
   box-shadow: 0 8px 32px rgba(166, 124, 82, 0.13),
     0 2px 8px rgba(191, 167, 111, 0.6), 0 1.5px 0 #bfa76f;
@@ -90,26 +90,55 @@
   transform: none;
 }
 
-@media (max-width: 600px) {
+@media (max-width: 768px) {
   .game-card {
-    width: 200px;
-    height: 280px;
+    width: clamp(130px, 18vw, 180px);
+    height: clamp(180px, 25vw, 250px);
   }
 
   .card-hover-text {
     font-size: 1.5rem;
     padding: 0.4rem 1rem;
   }
+}
+
+@media (max-width: 600px) {
+  .game-card {
+    width: clamp(110px, 20vw, 160px);
+    height: clamp(155px, 28vw, 220px);
+  }
+
+  .card-hover-text {
+    font-size: 1.3rem;
+    padding: 0.3rem 0.8rem;
+  }
 
   .card-hover-text--left {
     top: 15%;
     left: 5%;
-    font-size: 1.2rem;
+    font-size: 1.1rem;
   }
 
   .card-hover-text--right {
     top: 15%;
     right: 15%;
     font-size: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .game-card {
+    width: clamp(100px, 22vw, 140px);
+    height: clamp(140px, 31vw, 195px);
+  }
+
+  .card-hover-text {
+    font-size: 1.1rem;
+    padding: 0.3rem 0.6rem;
+  }
+
+  .card-hover-text--left,
+  .card-hover-text--right {
+    font-size: 0.9rem;
   }
 }

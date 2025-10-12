@@ -6,12 +6,13 @@
   height: 100%;
   width: 100%;
   position: relative;
-  padding: 1rem 0;
+  padding: clamp(0.5rem, 2vh, 1rem) 0;
+  overflow: hidden;
 }
 
 .home-title {
-  font-size: 4rem;
-  margin-bottom: 4rem;
+  font-size: clamp(2rem, 5vw, 4rem);
+  margin-bottom: clamp(1.5rem, 4vh, 4rem);
   letter-spacing: 3px;
   text-shadow: 0 4px 16px rgba(0, 0, 0, 0.8), 0 0 8px #bfa76f, 0 0 2px #fff;
   color: #ffe082;
@@ -24,13 +25,15 @@
 .cards-container {
   position: relative;
   width: 100%;
-  max-width: 800px;
-  height: 500px;
+  max-width: min(900px, 95vw);
+  height: clamp(250px, 45vh, 420px);
   display: flex;
   align-items: center;
   justify-content: center;
   perspective: 1000px;
   margin: 0 auto;
+  overflow: visible;
+  padding: 2rem 1rem;
 }
 
 .card-wrapper {
@@ -38,6 +41,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  will-change: transform;
 }
 
 .card-center {
@@ -68,59 +72,42 @@
 /* Tablet */
 @media (max-width: 1024px) {
   .cards-container {
-    max-width: 90%;
-    height: 450px;
+    max-width: min(750px, 92vw);
+    height: clamp(240px, 42vh, 400px);
+    padding: 1.5rem 0.75rem;
   }
 }
 
 @media (max-width: 768px) {
-  .home-title {
-    font-size: 2.5rem;
-    margin-bottom: 3rem;
-  }
-
   .cards-container {
-    max-width: 95%;
-    height: 400px;
-    padding: 0 1rem;
+    max-width: 95vw;
+    height: clamp(220px, 40vh, 350px);
+    padding: 1.25rem 0.5rem;
   }
 }
 
 /* Mobile Large */
 @media (max-width: 600px) {
-  .home-title {
-    font-size: 2rem;
-    margin-bottom: 2rem;
-  }
-
   .cards-container {
-    max-width: 100%;
-    height: 350px;
-    padding: 0 0.5rem;
+    max-width: 98vw;
+    height: clamp(200px, 38vh, 300px);
+    padding: 1rem 0.25rem;
   }
 }
 
 /* Mobile Medium */
 @media (max-width: 480px) {
-  .home-title {
-    font-size: 1.75rem;
-    margin-bottom: 1.5rem;
-  }
-
   .cards-container {
-    height: 300px;
-    padding: 0 0.25rem;
+    max-width: 100vw;
+    height: clamp(180px, 36vh, 260px);
+    padding: 0.75rem 0;
   }
 }
 
 /* Mobile Small */
 @media (max-width: 360px) {
-  .home-title {
-    font-size: 1.5rem;
-    margin-bottom: 1rem;
-  }
-
   .cards-container {
-    height: 250px;
+    height: clamp(160px, 34vh, 220px);
+    padding: 0.5rem 0;
   }
 }
