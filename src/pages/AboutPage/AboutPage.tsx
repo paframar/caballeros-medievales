@@ -1,10 +1,10 @@
 import { motion } from "motion/react";
 import { useNavigate } from "react-router-dom";
 import { useTranslation } from "react-i18next";
-import escudoImg from "../../assets/cards/caballeros-medievales-escudo.png";
-import hechiceraImg from "../../assets/cards/caballeros-medievales-hechicera.png";
-import espadaImg from "../../assets/cards/caballeros-medievales-espada.png";
-import hadaImg from "../../assets/cards/caballeros-medievales-hada.png";
+import alphaShieldImg from "../../assets/alpha/alpha-shield.png";
+import alphaSorceressImg from "../../assets/alpha/alpha-sourceress.png";
+import alphaSwordImg from "../../assets/alpha/alpha-sword.png";
+import alphaFairyImg from "../../assets/alpha/alpha-fairy.png";
 import "./AboutPage.css";
 
 export const AboutPage = () => {
@@ -15,25 +15,25 @@ export const AboutPage = () => {
     {
       id: "history",
       title: t("about.history.title"),
-      image: escudoImg,
+      image: alphaShieldImg,
       content: <p>{t("about.history.content")}</p>,
     },
     {
       id: "mission",
       title: t("about.mission.title"),
-      image: hechiceraImg,
+      image: alphaSorceressImg,
       content: <p>{t("about.mission.content")}</p>,
     },
     {
       id: "team",
       title: t("about.team.title"),
-      image: espadaImg,
+      image: alphaSwordImg,
       content: <p>{t("about.team.content")}</p>,
     },
     {
       id: "why",
       title: t("about.why.title"),
-      image: hadaImg,
+      image: alphaFairyImg,
       content: <p>{t("about.why.content")}</p>,
     },
   ];
