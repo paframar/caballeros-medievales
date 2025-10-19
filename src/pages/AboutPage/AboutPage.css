@@ -110,7 +110,7 @@
 .about-section-text {
   font-size: clamp(0.95rem, 3.5vw, 1.1rem);
   line-height: 1.6;
-  color: #e0e0e0;
+  color: #f0f0f0;
   text-align: justify;
 }
 
