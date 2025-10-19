@@ -1,7 +1,6 @@
 import { useTranslation } from "react-i18next";
 import { motion } from "motion/react";
 import { useNavigate } from "react-router-dom";
-import background5Img from "../../assets/backgrounds/background-5.png";
 import "./ContactPage.css";
 
 export const ContactPage = () => {
@@ -24,51 +23,81 @@ export const ContactPage = () => {
         animate={{ opacity: 1, x: 0 }}
         transition={{ delay: 0.1, duration: 0.5 }}
       >
-        ←
+        {window.innerWidth <= 768 ? "×" : "←"}
       </motion.button>
 
-      <motion.h1
-        className="contact-title"
-        initial={{ opacity: 0, y: -30 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: 0.2, duration: 0.6 }}
-      >
-        {t("nav.contact")}
-      </motion.h1>
+      <div className="contact-container">
+        <motion.h1
+          className="contact-title"
+          initial={{ opacity: 0, y: -30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.2, duration: 0.6 }}
+        >
+          {t("contact.title")}
+        </motion.h1>
 
-      <motion.div
-        className="contact-content"
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: 0.3, duration: 0.6 }}
-      >
-        <div className="contact-description">
-          <p>¿Tienes preguntas sobre Caballeros Medievales?</p>
-          <p>¿Quieres saber más sobre el juego o cómo conseguirlo?</p>
-        </div>
+        <motion.div
+          className="contact-section"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.3, duration: 0.6 }}
+        >
+          <div className="contact-description">
+            <p>{t("contact.description.question1")}</p>
+            <p>{t("contact.description.question2")}</p>
+          </div>
+        </motion.div>
 
         <div className="contact-info">
-          <div className="contact-item">
-            <h3>📧 Email</h3>
-            <p>contacto@caballerosmedievales.com</p>
-          </div>
+          <motion.div
+            className="contact-item-box"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.4, duration: 0.6 }}
+          >
+            <div className="contact-item">
+              <div className="contact-icon">📧</div>
+              <h3>{t("contact.email.label")}</h3>
+              <p>{t("contact.email.value")}</p>
+            </div>
+          </motion.div>
 
-          <div className="contact-item">
-            <h3>🏰 Redes Sociales</h3>
-            <p>@caballerosmedievales</p>
-          </div>
+          <motion.div
+            className="contact-item-box"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.5, duration: 0.6 }}
+          >
+            <div className="contact-item">
+              <div className="contact-icon">🏰</div>
+              <h3>{t("contact.social.label")}</h3>
+              <p>{t("contact.social.value")}</p>
+            </div>
+          </motion.div>
 
-          <div className="contact-item">
-            <h3>📍 Ubicación</h3>
-            <p>España</p>
-          </div>
+          <motion.div
+            className="contact-item-box"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.6, duration: 0.6 }}
+          >
+            <div className="contact-item">
+              <div className="contact-icon">📍</div>
+              <h3>{t("contact.location.label")}</h3>
+              <p>{t("contact.location.value")}</p>
+            </div>
+          </motion.div>
         </div>
 
-        <p className="contact-footer-text">
-          Estamos aquí para ayudarte en tu aventura medieval. ¡No dudes en
-          contactarnos!
-        </p>
-      </motion.div>
+        <motion.div
+          className="contact-section"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.7, duration: 0.6 }}
+        >
+          <p className="contact-footer-text">{t("contact.footer")}</p>
+        </motion.div>
+      </div>
     </motion.div>
   );
 };

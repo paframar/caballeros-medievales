@@ -1,8 +1,6 @@
-import { useState } from "react";
 import { useTranslation } from "react-i18next";
 import { motion } from "motion/react";
 import { useNavigate } from "react-router-dom";
-import { Modal } from "../../components/Modal";
 import banderaImg from "../../assets/cards/caballeros-medievales-bandera.png";
 import caballeroImg from "../../assets/cards/caballeros-medievales-caballero.png";
 import ladronImg from "../../assets/cards/caballeros-medievales-ladron.png";
@@ -20,7 +18,6 @@ import "./RulesPage.css";
 export const RulesPage = () => {
   const { t } = useTranslation();
   const navigate = useNavigate();
-  const [activeModal, setActiveModal] = useState<string | null>(null);
 
   const cardImages: Record<string, string> = {
     flag: banderaImg,
@@ -68,7 +65,7 @@ export const RulesPage = () => {
         animate={{ opacity: 1, x: 0 }}
         transition={{ delay: 0.1, duration: 0.5 }}
       >
-        ←
+        {window.innerWidth <= 768 ? "×" : "←"}
       </motion.button>
 
       <div className="rules-container">
@@ -78,7 +75,7 @@ export const RulesPage = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.2, duration: 0.6 }}
         >
-          {t("nav.rules")}
+          {t("rules.title")}
         </motion.h1>
 
         <motion.div
@@ -87,8 +84,8 @@ export const RulesPage = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.1, duration: 0.6 }}
         >
-          <h2>Objetivo</h2>
-          <p>{t("rules.objective")}</p>
+          <h2>{t("rules.objective.title")}</h2>
+          <p>{t("rules.objective.content")}</p>
         </motion.div>
 
         <motion.div
@@ -97,7 +94,7 @@ export const RulesPage = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.15, duration: 0.6 }}
         >
-          <h2>Preparación</h2>
+          <h2>{t("rules.setup.title")}</h2>
           <ul>
             {(
               t("rules.setup.description", { returnObjects: true }) as string[]
@@ -113,59 +110,49 @@ export const RulesPage = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.2, duration: 0.6 }}
         >
-          <h2>Cartas del Juego</h2>
-          <div className="cards-grid">
+          <h2>{t("rules.cardsTitle")}</h2>
+          <div className="cards-list">
             {cardNames.map((cardName, index) => (
               <motion.div
                 key={cardName}
-                className="card-rule-item"
-                initial={{ opacity: 0, scale: 0.8 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{ delay: 0.25 + index * 0.03, duration: 0.4 }}
-                onClick={() => setActiveModal(cardName)}
+                className="card-list-item"
+                initial={{ opacity: 0, x: -20 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ delay: 0.25 + index * 0.05, duration: 0.4 }}
               >
-                <div className="card-rule-card">
+                <div className="card-list-image-wrapper">
                   <img
                     src={cardImages[cardName]}
                     alt={t(`rules.cards.${cardName}.name`)}
+                    className="card-list-image"
                   />
+                </div>
+                <h3 className="card-list-title">
+                  {t(`rules.cards.${cardName}.name`)}
+                </h3>
+                <p className="card-list-hint">
+                  {t(`rules.cards.${cardName}.hint`)}
+                </p>
+                <div className="card-list-content">
+                  <p className="card-list-description">
+                    {t(`rules.cards.${cardName}.description`)}
+                  </p>
+                  {cardName === "dice" && (
+                    <ul className="dice-effects">
+                      {[1, 2, 3, 4, 5, 6].map((num) => (
+                        <li key={num}>
+                          <strong>{num}:</strong>{" "}
+                          {t(`rules.cards.dice.effects.${num}`)}
+                        </li>
+                      ))}
+                    </ul>
+                  )}
                 </div>
               </motion.div>
             ))}
           </div>
         </motion.div>
       </div>
-
-      {/* Modals */}
-      {cardNames.map((cardName) => (
-        <Modal
-          key={cardName}
-          isOpen={activeModal === cardName}
-          onClose={() => setActiveModal(null)}
-          title={t(`rules.cards.${cardName}.name`)}
-        >
-          <div className="modal-card-animation">
-            <motion.img
-              src={cardImages[cardName]}
-              alt={t(`rules.cards.${cardName}.name`)}
-              initial={{ opacity: 0, scale: 0.5, rotateY: -180 }}
-              animate={{ opacity: 1, scale: 1, rotateY: 0 }}
-              transition={{ duration: 0.8, type: "spring" }}
-              className="modal-card-image"
-            />
-          </div>
-          <p>{t(`rules.cards.${cardName}.description`)}</p>
-          {cardName === "dice" && (
-            <ul className="dice-effects">
-              {[1, 2, 3, 4, 5, 6].map((num) => (
-                <li key={num}>
-                  <strong>{num}:</strong> {t(`rules.cards.dice.effects.${num}`)}
-                </li>
-              ))}
-            </ul>
-          )}
-        </Modal>
-      ))}
     </motion.div>
   );
 };

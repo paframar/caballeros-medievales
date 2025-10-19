@@ -3,14 +3,62 @@
     "startPlaying": "Comienza a jugar",
     "rules": "Reglas",
     "contact": "Contacto",
-    "about": "Quiénes somos"
+    "about": "Sobre nosotros"
   },
   "home": {
-    "title": "Caballeros Medievales"
+    "title": "Caballeros Medievales",
+    "copyright": "Caballeros Medievales es una marca registrada © 2025 \n www.caballerosmedievales.com"
+  },
+  "footer": {
+    "copyright": "© {{year}} www.caballerosmedievales.com"
+  },
+  "contact": {
+    "title": "Contacto",
+    "description": {
+      "question1": "¿Tienes preguntas sobre Caballeros Medievales?",
+      "question2": "¿Quieres saber más sobre el juego o cómo conseguirlo?"
+    },
+    "email": {
+      "label": "Email",
+      "value": "contacto@caballerosmedievales.com"
+    },
+    "social": {
+      "label": "Redes",
+      "value": "@caballerosmedievales"
+    },
+    "location": {
+      "label": "Ubicación",
+      "value": "Comunidad Valenciana, España"
+    },
+    "footer": "Estamos aquí para ayudarte en tu aventura medieval. ¡No dudes en contactarnos!"
+  },
+  "about": {
+    "title": "Sobre nosotros",
+    "history": {
+      "title": "Nuestra Historia",
+      "content": "Caballeros Medievales nació de la imaginación y creatividad de una niña apasionada por los juegos de cartas y el fascinante mundo medieval. Inspirada por otros juegos de estrategia, ella concibió un universo único donde caballeros, hechiceras y criaturas místicas se enfrentan en batallas épicas."
+    },
+    "mission": {
+      "title": "Nuestra Misión",
+      "content": "Compartir la pasión por el juego de mesa y crear momentos inolvidables en familia. Queremos que Caballeros Medievales sea una experiencia que una generaciones, donde se combine la estrategia con la diversión y que cada partida cuente una historia diferente."
+    },
+    "team": {
+      "title": "El Equipo",
+      "content": "Somos una familia que decidió convertir una idea en realidad. Desde el diseño de las ilustraciones hasta las pruebas de cada regla en nuestra mesa, todo ha sido hecho con nuestras propias manos. Aún estamos aprendiendo, cometiendo errores y celebrando pequeños logros. Este es nuestro primer paso en el mundo de los juegos de mesa, y lo hacemos con la ilusión de quien empieza algo nuevo."
+    },
+    "why": {
+      "title": "¿Por qué Caballeros Medievales?",
+      "content": "Diseñado desde una perspectiva familiar con arte medieval elaborado a mano. Un equilibrio entre estrategia y diversión pensado para reunir a la familia alrededor de la mesa. Un proyecto que nace de la pasión y crece con cada partida jugada."
+    }
   },
   "rules": {
-    "objective": "Ser el primero en conseguir 6 banderas.",
+    "title": "Reglas",
+    "objective": {
+      "title": "Objetivo",
+      "content": "Ser el primero en conseguir 6 banderas."
+    },
     "setup": {
+      "title": "Preparación",
       "description": [
         "Mezcla todas las cartas.",
         "Reparte 5 cartas a cada jugador.",
@@ -18,61 +66,74 @@
         "Al final de tu turno, roba una carta del mazo para volver a tener 5."
       ]
     },
+    "cardsTitle": "Cartas del Juego",
     "cards": {
       "flag": {
         "name": "Bandera",
-        "description": "Coloca una bandera delante de ti. Cada bandera cuenta como una victoria. Gana el primer jugador que consiga 6 banderas."
+        "description": "Al jugar esta carta sumas una bandera a tu favor.",
+        "hint": "Las banderas son los pasos hacia la victoria."
       },
       "knight": {
         "name": "Caballero",
-        "description": "Dos caballeros forman una bandera. Solo puedes bajar uno por turno. Mientras no formen bandera, pueden ser atacados por Duendes o Espadas, a menos que estén protegidos por Castillo, Hada o Escudo."
+        "description": "Los Caballeros pueden ser atacados por Duendes o Espadas y protegidos por Castillo, Hada y Escudo. El objetivo es jugar un Caballero sobre otro que no esté atacado para convertirlo en Bandera. De no ser posible, se puede jugar individualmente el Caballero para abrir otra posibilidad de hacer Bandera. Pueden tenerse tantos Caballeros como se desee.",
+        "hint": "¡Protege a tus Caballeros para que lleguen a ser Banderas!"
       },
       "thief": {
         "name": "Ladrón",
-        "description": "Permite robar una bandera a otro jugador. Si el jugador atacado tiene una Hechicera, puede contrarrestar el robo."
+        "description": "Permite robar una Bandera a otro jugador. Si el jugador atacado tiene una Hechicera, puede contrarrestar el robo.",
+        "hint": "Roba Banderas de tus rivales, pero cuidado con la Hechicera."
       },
       "sorceress": {
         "name": "Hechicera",
-        "description": "Contrarresta el efecto del Ladrón. Cuando un jugador intenta robarte una bandera, puedes usar una Hechicera para evitarlo. Luego roba una carta del mazo para volver a tener 5."
+        "description": "Contrarresta el efecto del Ladrón. Cuando un jugador intenta robarte una Bandera, puedes usar una Hechicera para evitarlo.",
+        "hint": "¿Intentan robarte una Bandera? Usa la Hechicera para impedirlo y asegurar tu victoria."
       },
       "goblin": {
         "name": "Duende",
-        "description": "Ataca a los Caballeros que aún no forman bandera. Un caballero atacado por un Duende no puede convertirse en bandera hasta eliminar el ataque. Se puede quitar con un Hada o una Catapulta."
+        "description": "Puedes jugar este ataque sobre un Caballero que no esté siendo atacado con otro Duende. Coloca tu Duende sobre el Caballero que quieres atacar. Si el Caballero que atacas tiene una carta de Hada, descarta tanto el Hada como el Duende. El Duende también puede removerse al usarse la Catapulta.",
+        "hint": "Los Duendes impiden a los Caballeros convertirse en Bandera."
       },
       "fairy": {
         "name": "Hada",
-        "description": "Libera a un Caballero atacado por un Duende. También puede colocarse de forma preventiva para proteger al Caballero de futuros ataques de Duendes."
+        "description": "Juega el Hada sobre un Caballero que esté siendo atacado por un Duende para descartar ambas cartas. Puedes jugar el Hada sobre un Caballero que no esté siendo atacado por un Duende para prevenir su ataque. No puedes jugar más de un Hada en el mismo Caballero.",
+        "hint": "Las Hadas mantienen a los Duendes alejados de los Caballeros."
       },
       "sword": {
         "name": "Espada",
-        "description": "Ataca a los Caballeros que aún no son bandera, impidiendo que se completen. Puede eliminarse con un Escudo o una Catapulta."
+        "description": "Puedes jugar este ataque sobre un Caballero que no esté siendo atacado con otra Espada. Coloca tu Espada sobre el Caballero que quieres atacar. Si el Caballero que atacas tiene una carta de Escudo, descarta tanto el Escudo como la Espada. La Espada también puede removerse al usarse la Catapulta.",
+        "hint": "Las Espadas impiden a los Caballeros convertirse en Bandera."
       },
       "shield": {
         "name": "Escudo",
-        "description": "Protege a un Caballero del ataque de una Espada. Se puede usar para eliminar una Espada ya colocada o de manera preventiva."
+        "description": "Juega el Escudo sobre un Caballero que esté siendo atacado por una Espada para descartar ambas cartas. Puedes jugar el Escudo sobre un Caballero que no esté siendo atacado por una Espada para prevenir su ataque. No puedes jugar más de un Escudo en el mismo Caballero.",
+        "hint": "Protege a los Caballeros de las Espadas."
       },
       "castle": {
         "name": "Castillo",
-        "description": "Se coloca sobre un Caballero que no tenga ataques. Mientras el Castillo esté presente, ese Caballero no puede ser atacado hasta que se convierta en bandera."
+        "description": "Coloca el Castillo sobre un Caballero que no esté siendo atacado. Un Caballero con Castillo no puede recibir ataques. No puedes jugar más de un Castillo en el mismo Caballero.",
+        "hint": "¡Asegura que tus Caballeros lleguen a ser Banderas!"
       },
       "catapult": {
         "name": "Catapulta",
-        "description": "Permite transferir todos los ataques (Duendes y/o Espadas) que tengas sobre tus Caballeros a otros jugadores. No puedes poner el mismo tipo de ataque a un jugador que ya lo tenga, pero sí otro distinto."
+        "description": "Permite transferir todos los ataques (Duendes y/o Espadas) que tengan tus Caballeros a los Caballeros de otros jugadores. Podrán transferirse los ataques siempre que sea posible: un Caballero puede ser atacado por un máximo de 1 Espada y 1 Duende a la vez.",
+        "hint": "¡Sorprende a tu rival jugando sus ataques en su contra!"
       },
       "card_swap": {
         "name": "Cambio de cartas",
-        "description": "Intercambia toda tu mano con la de otro jugador. El jugador afectado roba una carta del mazo para volver a tener 5."
+        "description": "Intercambia las cartas de tu mano con las de un jugador que elijas. Luego de intercambiar las cartas, el jugador con el que intercambias roba una carta para volver a tener 5.",
+        "hint": "¡Prueba suerte con las cartas de tu rival!"
       },
       "dice": {
         "name": "Dado",
         "description": "Declara la guerra a otro jugador. Tira el dado y aplica el resultado:",
+        "hint": "Deja que el destino decida el resultado.",
         "effects": {
-          "1": "Robas una bandera al jugador atacado.",
+          "1": "Robas una Bandera al jugador atacado.",
           "2": "El otro jugador pierde su siguiente turno.",
-          "3": "El otro jugador pierde todos los caballeros que no sean bandera.",
-          "4": "Batalla: ambos jugadores tiran el dado; quien saque el número más alto roba una bandera al otro.",
+          "3": "El otro jugador pierde todos los Caballeros (no aplica a Caballeros hechos Bandera). Descarta también todas las cartas de ataque y defensa que lleven esos Caballeros.",
+          "4": "¡Batalla!: Ambos jugadores tiran el dado; quien saque el número más alto roba una Bandera al otro.",
           "5": "Tiras otra vez.",
-          "6": "El jugador atacado pierde todas sus banderas."
+          "6": "El jugador atacado descarta todas las cartas de Banderas en su poder. También aplica a las Banderas formadas por dos Caballeros."
         }
       }
     }
