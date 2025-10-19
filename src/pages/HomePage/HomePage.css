@@ -5,13 +5,15 @@
   align-items: center;
   justify-content: space-between;
   height: 100vh;
-  width: 100%;
-  padding: 2rem 1rem;
+  width: 100vw;
+  padding: 0.5rem;
+  margin: 0;
   position: relative;
   overflow: hidden;
-  background: url("../../assets/backgrounds/background-6.png") center center /
-    cover no-repeat;
+  background: url("../../assets/backgrounds/background-6.png") no-repeat;
   background-attachment: fixed;
+  background-size: cover;
+  background-position: center center;
 }
 
 .home-content {
@@ -84,8 +86,8 @@
 }
 
 .menu-item-image-wrapper {
-  width: 78%;
-  max-width: 156px;
+  width: 65%;
+  max-width: 130px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -107,7 +109,7 @@
 }
 
 .menu-label {
-  font-size: clamp(1.1rem, 4vw, 1.3rem);
+  font-size: clamp(1rem, 3.5vw, 1.2rem);
   color: #ffe082;
   font-weight: 700;
   text-shadow: 0 2px 8px rgba(0, 0, 0, 0.8), 0 0 8px rgba(191, 167, 111, 0.5);
@@ -171,7 +173,7 @@
   }
 
   .menu-item-image-wrapper {
-    max-width: 171.6px;
+    max-width: 130px;
   }
 
   .menu-label {
@@ -207,7 +209,7 @@
   }
 
   .menu-item-image-wrapper {
-    max-width: 195px;
+    max-width: 130px;
   }
 
   .menu-label {

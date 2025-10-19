@@ -1,12 +1,14 @@
 /* Mobile First - Base styles for mobile devices */
 .contact-page {
   height: 100vh;
-  width: 100%;
-  padding: 1rem;
+  width: 100vw;
+  padding: 0;
+  margin: 0;
   position: relative;
-  background: url("../../assets/backgrounds/background-13.png") center center /
-    cover no-repeat;
+  background: url("../../assets/backgrounds/background-13.png") no-repeat;
   background-attachment: fixed;
+  background-size: cover;
+  background-position: center center;
   overflow: hidden;
   display: flex;
   flex-direction: column;
@@ -15,20 +17,20 @@
 .back-button-icon {
   position: fixed;
   top: 1rem;
-  left: 1rem;
-  width: 44px;
-  height: 44px;
+  right: 1rem;
+  left: auto;
+  width: 50px;
+  height: 50px;
   border-radius: 50%;
   background: rgba(30, 30, 45, 0.9);
   border: 2px solid rgba(191, 167, 111, 0.6);
   color: #ffe082;
-  font-size: 1.5rem;
+  font-size: 1.8rem;
   cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: center;
   z-index: 100;
-  backdrop-filter: blur(8px);
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
   transition: all 0.3s ease;
 }
@@ -42,17 +44,18 @@
 .contact-container {
   max-width: 100%;
   margin: 0 auto;
-  padding: 3.5rem 0 1rem;
+  padding: 2rem 1rem 1rem;
   flex: 1;
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  overflow: hidden;
+  justify-content: flex-start;
+  overflow-y: auto;
+  overflow-x: hidden;
 }
 
 .contact-title {
-  font-size: clamp(1.8rem, 7vw, 2.8rem);
-  margin-bottom: 1.5rem;
+  font-size: clamp(1.6rem, 6vw, 2.4rem);
+  margin-bottom: 1rem;
   letter-spacing: 2px;
   text-shadow: 0 4px 16px rgba(0, 0, 0, 0.8), 0 0 12px #bfa76f,
     0 0 4px rgba(255, 224, 130, 0.8);
@@ -64,8 +67,8 @@
 .contact-section {
   background: rgba(30, 30, 45, 0.4);
   border-radius: 12px;
-  padding: 1.2rem;
-  margin-bottom: 1.2rem;
+  padding: 1rem;
+  margin-bottom: 0.8rem;
   border: 2px solid rgba(191, 167, 111, 0.3);
 }
 
@@ -155,14 +158,17 @@
   }
 
   .back-button-icon {
-    width: 50px;
-    height: 50px;
-    font-size: 1.8rem;
+    top: 2rem;
+    left: 2rem;
+    right: auto;
+    width: 55px;
+    height: 55px;
+    font-size: 2rem;
   }
 
   .contact-container {
     max-width: 800px;
-    padding: 4rem 0 1.5rem;
+    padding: 3rem 1rem 1.5rem;
   }
 
   .contact-section {
@@ -202,13 +208,9 @@
 
 /* Desktop - 1024px and up */
 @media (min-width: 1024px) {
-  .contact-page {
-    padding: 3rem;
-  }
-
   .contact-container {
     max-width: 900px;
-    padding: 4rem 0 1.5rem;
+    padding: 3rem 1rem 1.5rem;
   }
 
   .contact-section {

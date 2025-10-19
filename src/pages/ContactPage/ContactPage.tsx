@@ -42,10 +42,7 @@ export const ContactPage = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.3, duration: 0.6 }}
         >
-          <div className="contact-description">
-            <p>{t("contact.description.question1")}</p>
-            <p>{t("contact.description.question2")}</p>
-          </div>
+          <p className="contact-footer-text">{t("contact.footer")}</p>
         </motion.div>
 
         <div className="contact-info">
@@ -88,15 +85,6 @@ export const ContactPage = () => {
             </div>
           </motion.div>
         </div>
-
-        <motion.div
-          className="contact-section"
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.7, duration: 0.6 }}
-        >
-          <p className="contact-footer-text">{t("contact.footer")}</p>
-        </motion.div>
       </div>
     </motion.div>
   );
