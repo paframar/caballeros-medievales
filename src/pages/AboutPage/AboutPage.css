@@ -42,7 +42,7 @@
 .about-container {
   max-width: 100%;
   margin: 0 auto;
-  padding: 3.5rem 1rem 0.5rem;
+  padding: 3.5rem 1rem 4rem;
 }
 
 .about-title {
@@ -134,7 +134,7 @@
 
   .about-container {
     max-width: 800px;
-    padding: 5rem 0 3rem;
+    padding: 5rem 1rem 4rem;
   }
 
   .about-sections-list {
