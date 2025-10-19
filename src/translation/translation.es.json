@@ -18,13 +18,9 @@
       "question1": "¿Tienes preguntas sobre Caballeros Medievales?",
       "question2": "¿Quieres saber más sobre el juego o cómo conseguirlo?"
     },
-    "email": {
-      "label": "Email",
-      "value": "contacto@caballerosmedievales.com"
-    },
-    "social": {
-      "label": "Redes",
-      "value": "@caballerosmedievales"
+    "whatsapp": {
+      "label": "WhatsApp",
+      "value": "Chatea con nosotros"
     },
     "location": {
       "label": "Ubicación",

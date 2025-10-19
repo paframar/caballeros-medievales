@@ -112,6 +112,17 @@
   background: rgba(30, 30, 45, 0.5);
 }
 
+.contact-item-box-clickable {
+  text-decoration: none;
+  color: inherit;
+  cursor: pointer;
+}
+
+.contact-item-box-clickable:hover {
+  text-decoration: none;
+  color: inherit;
+}
+
 .contact-item {
   display: flex;
   flex-direction: column;
@@ -124,6 +135,16 @@
   font-size: clamp(2.5rem, 8vw, 3.5rem);
   line-height: 1;
   filter: drop-shadow(0 2px 8px rgba(191, 167, 111, 0.5));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.contact-icon-image {
+  width: clamp(2.5rem, 8vw, 3.5rem);
+  height: clamp(2.5rem, 8vw, 3.5rem);
+  object-fit: contain;
+  border-radius: 8px;
 }
 
 .contact-item h3 {
@@ -140,6 +161,21 @@
   color: #e8e8e8;
   margin: 0;
   word-break: break-word;
+}
+
+.contact-link {
+  color: #ffe082;
+  text-decoration: none;
+  font-size: clamp(0.95rem, 3.5vw, 1.1rem);
+  line-height: 1.5;
+  margin: 0;
+  word-break: break-word;
+  transition: color 0.3s ease;
+}
+
+.contact-link:hover {
+  color: #ffd700;
+  text-decoration: underline;
 }
 
 .contact-footer-text {
