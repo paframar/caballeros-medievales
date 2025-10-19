@@ -6,7 +6,7 @@
   justify-content: space-between;
   height: 100vh;
   width: 100vw;
-  padding: 0.5rem;
+  padding: 0.5rem 0.5rem 3rem;
   margin: 0;
   position: relative;
   overflow: hidden;
@@ -135,7 +135,7 @@
 /* Tablet - 768px and up */
 @media (min-width: 768px) {
   .home-page {
-    padding: 2rem;
+    padding: 2rem 2rem 3rem;
   }
 
   .home-title {
@@ -189,7 +189,7 @@
 /* Desktop - 1024px and up */
 @media (min-width: 1024px) {
   .home-page {
-    padding: 2rem 3rem;
+    padding: 2rem 3rem 4rem;
   }
 
   .home-title {
